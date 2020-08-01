@@ -10,9 +10,11 @@
   "dependencies": {
     "babel-plugin-import": "^1.13.0",
     "core-js": "^3.6.5",
+    "iscroll": "^5.2.0",
     "less": "^3.12.2",
     "less-loader": "^6.2.0",
     "postcss-px2rem": "^0.3.0",
+    "swiper": "^5.3.7",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "vant": "^2.9.3",
     "vue": "^2.6.11",

@@ -1,67 +1,56 @@
 <!--  -->
 <template>
-  <div>
+  <div class="headerWrap">
     <header>
       <div class="head-left">
         <van-icon
           name="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2020023918,3925028839&fm=26&gp=0.jpg"
           @click="showPopup"
         />
-
-        <van-icon
-          name="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2299816339,1443618864&fm=26&gp=0.jpg"
-        />
-        <span>菜市场中心</span>
+        <router-link to="/home">
+          <van-icon
+            name="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1683583943,3250913306&fm=26&gp=0.jpg"
+          />
+          <span>菜市場中心</span>
+        </router-link>
       </div>
       <div class="head-right">
-        <van-icon name="search" />
-        <van-icon name="shopping-cart" />
+        <van-icon name="location-o" />
+        <van-icon name="shopping-cart" class="shopping-cart" @click="toShoppingCart">
+          <i class="num">1</i>
+        </van-icon>
       </div>
     </header>
-    <!-- <van-popup v-model="show">内容</van-popup> -->
+
     <van-popup v-model="show" position="left" :style="{height:'100%',width:'60%'}">
       <div class="login-and-register">
-        <van-button plain type="danger" size="small">登录</van-button>
-        <van-button plain type="danger" size="small">注册</van-button>
+        <router-link to="/login">
+          <van-button plain type="danger" size="small" @click="close">登錄</van-button>
+        </router-link>
+        <router-link to="/register">
+          <van-button plain type="danger" size="small" @click="close">註冊</van-button>
+        </router-link>
       </div>
-      <div class="home active">首页</div>
-      <div class="shoShopping-Cartp">购物车</div>
-      <div class="nav-select-shop">
-        <van-dropdown-menu>
-          <van-dropdown-item v-model="value" :options="option" />
-        </van-dropdown-menu>
+      <router-link to="/home">
+        <van-cell title="首頁" is-link class="home" @click="close" />
+      </router-link>
+      <router-link to="/shoppingcart">
+        <van-cell title="購物車" is-link class="shoShopping-Cartp" @click="close" />
+      </router-link>
+
+      <van-cell title="我的訂單" is-link class="shoShopping-Cartp" @click="close" />
+      <van-cell title="選擇分店" is-link class="shoShopping-Cartp" @click="close" />
+      <div class="Special">
+        <van-cell title="特賣熱銷" is-link class="shoShopping-Cartp" />
+      </div>
+      <div class="join">
+        <img src="../../assets/jiaru.png" alt />
+        <img src="../../assets/lianshu.png" alt />
+      </div>
+      <div class="delivery">
+        <img src="../../assets/c127e298-3a2c-418b-a4c4-4938c3742797.png" alt />
       </div>
     </van-popup>
-    <div id="select-shop" @click="showMask = !showMask ">
-      <van-collapse v-model="activeNames">
-        <van-collapse-item title="选择分店" name="1" @click="showMask = !showMask">
-          <ul>
-            <li>1号店</li>
-            <li>2号店</li>
-            <li>3号店</li>
-            <li>4号店</li>
-          </ul>
-        </van-collapse-item>
-      </van-collapse>
-    </div>
-    <van-overlay :show="showMask" @click="showMask = false" />
-    <div class="section">
-      <div class="sectioninner">
-        <img
-          src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1595869579639&di=885ed6159bb45593b88af20d8d9b3d92&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D115337761%2C3299719411%26fm%3D214%26gp%3D0.jpg"
-          alt
-        />
-        <img
-          src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3735042573,1550491561&fm=26&gp=0.jpg"
-          alt
-        />
-        <img
-          src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3925349447,4033995516&fm=26&gp=0.jpg"
-          alt
-        />
-        <img src="https://t8.baidu.com/it/u=984862069,3326620234&fm=193" alt />
-      </div>
-    </div>
   </div>
 </template>
 
@@ -78,8 +67,6 @@ export default {
         { text: '活动商品', value: 2 },
       ],
       show: false,
-      activeNames: ['1'],
-      showMask: false,
     }
   },
   methods: {
@@ -88,6 +75,15 @@ export default {
     },
     showPopup() {
       this.show = true
+    },
+    toShoppingCart() {
+      this.$router.push({ path: '/shoppingcart' })
+      if (this.show) {
+        this.show = !this.show
+      }
+    },
+    close() {
+      this.show = !this.show
     },
   },
 
@@ -99,7 +95,13 @@ export default {
 </script>
 <style lang="less" >
 /* @import url(); 引入css类 */
+#app {
+  width: 100%;
+  height: 100%;
+  // overflow: hidden;
+}
 header {
+  background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596172934659&di=b9aaccee82b43ca4a001b0a8f37a9bc1&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Fback_pic%2F04%2F46%2F48%2F29585746a25cbc7.jpg%2521%2Ffwfh%2F804x473%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue');
   padding: 10px;
   overflow: hidden;
   position: fixed;
@@ -108,7 +110,8 @@ header {
   z-index: 10;
   top: 0px;
   left: 0px;
-  background-color: #3cb371;
+  background-color: #ffffff;
+  // background-color: #3cb371;
   &::after {
     content: '';
     width: 100%;
@@ -143,50 +146,28 @@ header {
       color: red;
       font-weight: 600;
     }
-  }
-}
-#select-shop {
-  width: 100%;
-  position: absolute;
-  top: 50px;
-  left: 0px;
-  margin: auto;
-  z-index: 10;
-  background-color: #3cb371;
-  box-sizing: border-box;
-
-  .van-cell {
-    .van-cell__title {
-      font-size: 16px;
-      font-weight: 600;
+    .shopping-cart {
+      position: relative;
     }
-    .van-icon {
-      font-weight: 700;
-      font-size: 25px;
-    }
-    background-color: #3cb371;
-    &::after {
-      content: '';
-      transform: scaleY(0) !important;
-    }
-  }
-  .van-collapse-item__content {
-    background-color: #90ee90;
-  }
-
-  ul {
-    li {
-      border: 1px solid rgba(107, 105, 105, 0.8);
-      padding: 10px;
-      border-radius: 10px;
-      margin: 10px 0px;
-      color: red;
-      font-weight: 200;
+    .num {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      font-size: 13px;
+      color: #ffffff;
+      background-color: red;
+      z-index: 2000;
+      text-align: center;
+      padding: 1px;
+      right: -18px;
+      top: -3px;
     }
   }
 }
+
 .van-popup {
-  background-color: #dddddd;
+  // background-color: #dddddd !important;
   .login-and-register {
     display: flex;
     justify-content: space-evenly;
@@ -210,19 +191,24 @@ header {
   .nav-select-shop {
     margin-top: 10px;
   }
-}
-
-.section {
-  height: 600px;
-  overflow: auto;
-  margin-top: 94px;
-  .sectioninner {
-    // display: flex;
-    // flex-wrap: wrap;
+  .Special {
+    margin-top: 10px;
   }
-
-  img {
-    width: 100%;
+  .join {
+    margin-top: 10px;
+    padding: 10px 0px;
+    background-color: #ffffff;
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+  .delivery {
+    margin-top: 10px;
+    // background-color: #ffffff;
+    img {
+      width: 100%;
+    }
   }
 }
 </style>

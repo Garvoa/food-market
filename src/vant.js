@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Button, Field, Icon, Tabbar, TabbarItem, Swipe, SwipeItem, Overlay, Tab, Tabs, Dialog, Form, Toast, TreeSelect, Search, PullRefresh, ActionSheet, Cell, List, RadioGroup, Radio, Loading, GoodsAction, GoodsActionButton, GoodsActionIcon, DropdownMenu, DropdownItem, Popup, Collapse, CollapseItem } from 'vant';
+import { Button, Field, Icon, Tabbar, TabbarItem, Swipe, SwipeItem, Overlay, Tab, Tabs, Dialog, Form, Toast, TreeSelect, Search, PullRefresh, ActionSheet, Cell, List, RadioGroup, Radio, Loading, GoodsAction, GoodsActionButton, GoodsActionIcon, DropdownMenu, DropdownItem, Popup, Collapse, CollapseItem, NavBar, switchCell, sku, shareSheet, ImagePreview, Col, Row, Stepper, Checkbox, CheckboxGroup, Calendar, DatetimePicker, AddressEdit, AddressList, } from 'vant';
 
 Vue.use(Radio);
 Vue.use(RadioGroup);
@@ -26,10 +26,22 @@ Vue.use(Loading);
 Vue.use(GoodsAction);
 Vue.use(GoodsActionButton);
 Vue.use(GoodsActionIcon);
-
-
+Vue.use(ImagePreview)
+Vue.use(sku)
 Vue.use(Collapse);
 Vue.use(CollapseItem);
 Vue.use(DropdownMenu);
 Vue.use(DropdownItem);
 Vue.use(Popup)
+Vue.use(switchCell)
+Vue.use(NavBar)
+Vue.use(shareSheet)
+Vue.use(Stepper)
+Vue.use(Col);
+Vue.use(Row);
+Vue.use(Checkbox);
+Vue.use(CheckboxGroup);
+Vue.use(Calendar)
+Vue.use(DatetimePicker)
+Vue.use(AddressEdit)
+Vue.use(AddressList)
