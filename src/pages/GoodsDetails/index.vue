@@ -8,7 +8,7 @@
         <van-tab title="详情"></van-tab>
         <van-tab title="推荐"></van-tab>
       </van-tabs>-->
-      <p>1號當鋪蔬菜</p>
+      <p>{{$route.query.pawnshop||'叻叻豬肉鋪'}}</p>
       <van-icon name="weapp-nav" @click="showShare = true"></van-icon>
       <van-share-sheet v-model="showShare" title="立即分享给好友" :options="options" @select="onSelect" />
     </div>
@@ -16,22 +16,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide" @click="showMaxBrowse">
-            <img
-              src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3315062764,550271931&fm=26&gp=0.jpg"
-              alt
-            />
-          </div>
-          <div class="swiper-slide" @click="showMaxBrowse">
-            <img
-              src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2877344882,1349295224&fm=26&gp=0.jpg"
-              alt
-            />
-          </div>
-          <div class="swiper-slide" @click="showMaxBrowse">
-            <img
-              src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1165665177,1342964217&fm=26&gp=0.jpg"
-              alt
-            />
+            <img :src="item.img" alt />
           </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -47,14 +32,14 @@
       <div>
         <van-row class="goods-details-name">
           <van-col span="24">
-            <span class="name">胡蘿蔔 450g</span>
+            <span class="name">{{item.name}}</span>
           </van-col>
           <van-col span="24">
-            <span class="Details">清炒，煲湯精選，美味之選</span>
+            <span class="Details">{{item.Introduce}}</span>
           </van-col>
           <van-col span="20">
-            <span class="price">$2.15</span>
-            <span class="weight">/份/盒/袋</span>
+            <span class="price">${{item.price}}</span>
+            <span class="weight">/{{item.weight}}</span>
           </van-col>
         </van-row>
         <van-cell
@@ -81,21 +66,17 @@
           v-model="showShopping"
           round
           position="bottom"
-          :style="{ height: '40%' }"
+          :style="{ height: '50%' }"
           class="Shopping-popup"
         >
           <van-row>
             <van-col span="8">
-              <img
-                class="goodsImg"
-                src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2877344882,1349295224&fm=26&gp=0.jpg"
-                alt
-              />
+              <img class="goodsImg" :src="item.img" alt />
             </van-col>
             <van-col span="16" class="goodsConfig">
-              <p class="name">胡蘿蔔</p>
+              <p class="name">{{item.name}}</p>
               <p class="price">
-                $2.15
+                ${{item.price}}
                 <span>/份</span>
               </p>
               <p class="unit">已選：1份</p>
@@ -108,11 +89,11 @@
                 <p>購買數量</p>
               </van-col>
               <van-col span="8">
-                <van-stepper v-model="value" theme="round" button-size="22" disable-input />
+                <van-stepper v-model="item.num" theme="round" button-size="22" disable-input />
               </van-col>
             </van-col>
             <van-col span="24" class="add">
-              <van-button round type="info" @click="addGoods">加入購物車</van-button>
+              <van-button round type="info" @click="addGoods($event,item)">加入購物車</van-button>
             </van-col>
           </van-row>
         </van-popup>
@@ -129,47 +110,113 @@
           </template>
         </van-cell>-->
       </div>
-      <div class="goods-details-Img">
-        <p>
-          <img src="../../assets/20200730123418.jpg" alt />
-        </p>
-        <p>
-          <img src="../../assets/20200730123413.jpg" alt />
-        </p>
-        <p>
-          <img src="../../assets/20200730123424.jpg" alt />
-        </p>
+      <van-tabs v-model="active">
+        <van-tab title="商品介紹">
+          <div class="goods-details-Img">
+            <p v-for=" (item,index) in item.list" :key="index">
+              <img :src="item" alt />
+            </p>
+          </div>
+        </van-tab>
+        <van-tab title="規格參數">
+          <div class="detail_item" id="detail2">
+            <div id="package" style>
+              <div class="mod_tit_line">
+                <span>包裝清單</span>
+              </div>
+              <div class="mod_row" id="detPackage">xxxxxx,450g</div>
+            </div>
+            <div class="inner">
+              <div class="mod_tit_line">
+                <span>商品參數</span>
+              </div>
+              <div id="detParam">
+                <br />
+                <p>
+                  <van-row>
+                    <van-col span="6">
+                      <span>商品編號</span>
+                    </van-col>
+                    <van-col span="10">
+                      <span>7629757</span>
+                    </van-col>
+                  </van-row>
+                </p>
 
-        <p>
-          <img src="../../assets/20200730123350.jpg" alt />
-        </p>
-      </div>
+                <p>
+                  <van-row>
+                    <van-col span="6">
+                      <span>淨含量</span>
+                    </van-col>
+                    <van-col span="10">
+                      <span>1.2kg</span>
+                    </van-col>
+                  </van-row>
+                </p>
+
+                <p>
+                  <van-row>
+                    <van-col span="6">
+                      <span>貯存條件</span>
+                    </van-col>
+                    <van-col span="10">
+                      <span>深冷、冷凍-18℃</span>
+                    </van-col>
+                  </van-row>
+                </p>
+
+                <p>
+                  <van-row>
+                    <van-col span="6">
+                      <span>保質期</span>
+                    </van-col>
+                    <van-col span="10">
+                      <span>365天</span>
+                    </van-col>
+                  </van-row>
+                </p>
+              </div>
+            </div>
+          </div>
+        </van-tab>
+        <van-tab title="售後保障">
+          <div class="mod_tit_line">
+            <span>商品参数</span>
+          </div>
+          <!-- <span>“日日食良”服務是為魔鏡等級S2及以上的京東優質客戶提供的售後特色服務，符合條件的生鮮自營訂單商品有破損或腐壞等問題，可以在商品簽收後48小時內提交“優鮮賠”申請，提交申請後100分鐘內稽核通過後即享補償或退款，無需返回商品，為客戶節省了返回商品的物流等待時間和收貨檢測的處理時間（非鮮活易腐類商品除外）</span> -->
+          <span>
+            <!-- <br /> -->
+            <br />异常問題：
+            商品促銷資訊以商品詳情頁“促銷”欄中的資訊為准；商品的具體售價以訂單結算頁價格為准；如您發現活動商品售價或促銷資訊有异常，建議購買前先聯系銷售商諮詢。
+          </span>
+        </van-tab>
+      </van-tabs>
     </div>
     <div class="goods-details-footer">
       <van-goods-action>
         <van-goods-action-icon icon="chat-o" text="客服" @click="onClickIcon" />
 
-        <van-goods-action-icon icon="shop-o" text="當鋪" @click="onClickIcon" />
+        <van-goods-action-icon icon="shop-o" text="店鋪" @click="onClickIcon" />
         <van-goods-action-button type="danger" text="立即購買" @click="onClickButton" />
       </van-goods-action>
     </div>
     <div id="shangxia2">
       <span id="gotop1" ref="gotop1">
-        <img src="../../assets/huojian.svg" alt="返回顶部小火箭" />
+        <img src="img/huojian.svg" alt="返回顶部小火箭" />
       </span>
     </div>
     <div id="ball" ref="ball"></div>
   </div>
 </template>
 <script>
-import { ImagePreview } from 'vant'
-
+import { ImagePreview, Dialog } from 'vant'
+import { mapState } from 'vuex'
 import Swiper from 'swiper'
 export default {
   components: {},
   data() {
     return {
-      active: 2,
+      active: 0,
       showShare: false,
       show: false,
       showShopping: false,
@@ -180,10 +227,18 @@ export default {
         { name: '分享海报', icon: 'poster' },
         { name: '二维码', icon: 'qrcode' },
       ],
-      value: 0,
+
+      list: [],
+      item: {},
     }
   },
   mounted() {
+    let obj = JSON.parse(this.$route.query.item)
+    this.item = {
+      ...obj,
+      num: 1,
+    }
+    this.list = obj.list
     var mySwiper = new Swiper('.swiper-container', {
       // direction: 'vertical', // 垂直切换选项
       loop: true, // 循环模式选项
@@ -267,19 +322,32 @@ export default {
       this.showShare = false
     },
     showMaxBrowse() {
-      ImagePreview([
-        'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3315062764,550271931&fm=26&gp=0.jpg',
-        'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2877344882,1349295224&fm=26&gp=0.jpg',
-        'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1165665177,1342964217&fm=26&gp=0.jpg',
-      ])
+      ImagePreview([JSON.parse(this.$route.query.item).img])
     },
     onClickIcon() {
       Toast('点击图标')
     },
     onClickButton() {
-      this.$router.push({ path: '/pay' })
+      if (this.isLogin) {
+        this.$store.commit('Update_payOrdersList', this.item)
+        this.$router.push({
+          path: '/pay',
+        })
+      } else {
+        Dialog.confirm({
+          title: '提示',
+          message: '你還沒有登錄哦，現在馬上去登陸！',
+        })
+          .then(() => {
+            // on confirm
+            this.$router.push({ path: '/login' })
+          })
+          .catch(() => {
+            // on cancel
+          })
+      }
     },
-    addGoods(e) {
+    addGoods(e, item) {
       this.$refs.ball.style.top = e.pageY + 'px'
       this.$refs.ball.style.left = e.pageX + 'px'
       this.$refs.ball.style.transition = 'left 0s, top 0s'
@@ -290,10 +358,14 @@ export default {
         this.$refs.ball.style.left = 3.39 + 'rem'
         this.$refs.ball.style.transition = 'left 0.5s linear, top 0.5s ease-in'
       }, 20)
+      this.$store.commit('Update_shoppingCartList', item)
     },
     toRoute() {
       this.$router.go(-1)
     },
+  },
+  computed: {
+    ...mapState({ isLogin: (state) => state.login.isLogin }),
   },
 }
 </script>
@@ -439,12 +511,69 @@ export default {
     }
   }
 }
+.van-tabs__nav {
+  background-color: #ffa341;
+  // border-radius: 10px;
+  // margin-top: 10px;
+  .van-tab {
+    border-radius: 10px;
+  }
+}
+.detail_item {
+  #package {
+    padding: 10px 0px;
+    text-align: center;
+  }
+
+  .inner {
+    text-align: center;
+    #detParam {
+      margin-top: 10px;
+      border-bottom: 1px solid #cccccc;
+      // padding: 0px 20px;
+      // border-radius: 10px;
+      p {
+        border-top: 1px solid #cccccc;
+        border-left: 1px solid #cccccc;
+        border-right: 1px solid #cccccc;
+        padding: 10px 0px;
+        // &:nth-last-child(1) {
+        //   border: 1px solid #cccccc;
+        // }
+      }
+    }
+  }
+}
+.mod_tit_line {
+  position: relative;
+  text-align: center;
+  margin: 10px 0px;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    height: 1px;
+    transform: scaleY(0.3);
+    background-color: #000;
+    z-index: -1;
+  }
+  span {
+    background-color: white;
+    width: 90px;
+    display: inline-block;
+  }
+}
 #ball {
   width: 10px;
   height: 10px;
   background: red;
   border-radius: 50%;
   position: fixed;
+
   transition: left 0.5s linear, top 0.5s ease- in;
   z-index: 1000;
   opacity: 0;

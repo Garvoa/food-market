@@ -3,16 +3,17 @@
     <van-nav-bar title="新增收貨地址" left-text="返回" left-arrow @click-left="onClickLeft" />
     <van-address-edit
       :area-list="areaList"
-      show-postal
       show-delete
       show-set-default
       show-search-result
       :search-result="searchResult"
-      :area-columns-placeholder="['请选择', '请选择', '请选择']"
+      :area-columns-placeholder="['请选择','请选择']"
       @save="onSave"
       @delete="onDelete"
+      area-placeholder="請選擇區域"
       @change-detail="onChangeDetail"
-    />
+      :columns-num="2"
+    ></van-address-edit>
   </div>
 </template>
 <script>
@@ -22,27 +23,24 @@ export default {
     return {
       areaList: {
         province_list: {
-          110000: '香港',
+          110000: '香港島',
+          120000: '九龍半島',
+          130000: '新界',
         },
+        // 香bai港岛du、九龙半岛、新界
+        // 香港島
         city_list: {
           110100: '中西區',
           110200: '灣仔區',
           110300: '東區',
-          110400: '九龍城區',
-          110500: '油尖旺區',
-        },
-        county_list: {
-          110101: '东城区',
-          110102: '西城区',
-          110202: '西城区',
-          110205: '朝阳区',
-          110306: '丰台区',
-          120301: '和平区',
-          120402: '河东区',
-          120403: '河西区',
-          120504: '南开区',
-          120505: '河北区',
-          120501: '尖沙咀',
+          110400: '南區',
+          120100: '油尖旺區',
+          120200: '深水埗區',
+          120300: '九龍城區',
+          130100: '北區',
+          130200: '大埔區',
+          130300: '西貢區',
+          130400: '北區',
           // ....
         },
       },
@@ -83,6 +81,11 @@ export default {
   box-sizing: border-box;
   .van-switch {
     font: 16px Helvetica, Arial, '宋体', sans-serif;
+  }
+  .van-picker {
+    .van-picker__columns {
+      display: block;
+    }
   }
 }
 </style>

@@ -45,22 +45,25 @@
       </van-popup>
     </div>
     <div class="payType">
-      <van-cell is-link @click="showPopup" icon="star">支付方式</van-cell>
+      <van-cell is-link @click="showPopup" icon="star">
+        支付方式
+        <template #right-icon>
+          {{payType}}
+          <van-icon name="arrow" class="arrow=icon" />
+        </template>
+      </van-cell>
       <van-popup v-model="show" position="bottom" :style="{ height: '20%' }">
         <div class="payType-inner">
-          <p>貨到付款</p>
-          <p>銀行卡支付</p>
+          <p @click="close('貨到付款')">貨到付款</p>
+          <p @click="close('銀行卡支付')">銀行卡支付</p>
         </div>
       </van-popup>
     </div>
     <div class="pay-footer">
       <van-row class="pay-footer-content">
-        <!-- <van-col span="6">
-          <van-checkbox v-model="checked">全選</van-checkbox>
-        </van-col>-->
         <van-col span="12" class="price">
           <span>合計:</span>
-          <span class="food">$29.99</span>
+          <span class="food">${{getPrice}}</span>
         </van-col>
         <van-col span="6">
           <van-button round type="info" class="Settlement" @click="toPay">提交訂單</van-button>
@@ -69,27 +72,31 @@
     </div>
     <div class="Orders">
       <p class="title">訂單詳情</p>
-      <van-row>
-        <van-col span="8">
-          <img src="../../assets/1c9fad7d-63ef-492a-b9bc-da32ab37d2c1.png" alt />
-        </van-col>
-        <van-col span="12">
-          <div class="Orders-inner">
-            <p>一休小白菜</p>
-            <p>規格：16.kg箱</p>
-            <p>單價：$29.99</p>
-            <p>數量：1箱</p>
-          </div>
-        </van-col>
-        <van-col span="4">$29.99</van-col>
-      </van-row>
-      <van-cell-group>
+      <div v-for="(item,index) in payOrdersList" :key="index">
+        <van-row>
+          <van-col span="8">
+            <img :src="item.img" alt />
+          </van-col>
+          <van-col span="12">
+            <div class="Orders-inner">
+              <p>{{item.name}}</p>
+              <p>規格：{{item.weight}}</p>
+              <p>單價：${{item.price}}</p>
+              <p>數量：{{item.num}}</p>
+            </div>
+          </van-col>
+          <van-col span="4">${{item.price*item.num}}</van-col>
+        </van-row>
+      </div>
+
+      <van-cell>
         <van-field v-model="value" label="訂單備註" placeholder="選填" />
-      </van-cell-group>
+      </van-cell>
     </div>
   </div>
 </template>
 <script>
+import { mapState, mapGetters } from 'vuex'
 export default {
   components: {},
   data() {
@@ -99,10 +106,16 @@ export default {
       currentTime: '',
       showHours: false,
       show: false,
+      payType: '',
+      value: '',
     }
   },
   mounted() {},
   methods: {
+    close(type) {
+      this.show = !this.show
+      this.payType = type
+    },
     formatDate(date) {
       return `${date.getMonth() + 1}/${date.getDate()}`
     },
@@ -126,6 +139,7 @@ export default {
     },
     onClickLeft() {
       this.$router.go(-1)
+      this.$store.commit('Del_payOrdersList')
     },
     toSelectAddress() {
       this.$router.push({ path: '/selectaddress' })
@@ -133,7 +147,15 @@ export default {
     showPopup() {
       this.show = true
     },
-    toPay() {},
+    toPay() {
+      this.$store.commit('Del_payOrdersList')
+      this.$store.commit('Delete_shoppingCart_checked')
+      this.$router.push({ path: '/payresults' })
+    },
+  },
+  computed: {
+    ...mapState({ payOrdersList: (state) => state.pay.payOrdersList }),
+    ...mapGetters(['getPrice']),
   },
 }
 </script>
@@ -217,6 +239,8 @@ export default {
     padding: 10px 10px;
     box-sizing: border-box;
     border-top: 1px solid #cccccc;
+
+    z-index: 100;
     .pay-footer-content {
       display: flex;
       align-items: center;

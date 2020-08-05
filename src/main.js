@@ -7,7 +7,17 @@ import "swiper/css/swiper.css"
 Vue.config.productionTip = false
 import zhHK from 'vant/lib/locale/lang/zh-HK';
 import { Locale } from "vant"
+import store from "./store"
 Locale.use('zh-HK', zhHK);
+// window.addEventListener(
+//   'beforeunload',
+//   () => {
+//     console.log(this)
+//     Vue.$router.push({ path: '/' })
+//   },
+//   false
+// )
+
 // const messages = {
 //   // 'en-US': {
 //   //   vanPicker: {
@@ -24,5 +34,6 @@ Locale.use('zh-HK', zhHK);
 // Locale.add(messages);
 new Vue({
   render: h => h(App),
-  router
+  router,
+  store
 }).$mount('#app')

@@ -42,6 +42,11 @@ export default [
     component: () => import('../pages/SelectAddress')
   },
   {
+    path: "/payresults",
+    name: 'payresults',
+    component: () => import('../pages/PayResults')
+  },
+  {
     path: "/login",
     name: 'login',
     component: () => import('../pages/Login')
@@ -50,6 +55,11 @@ export default [
     path: "/register",
     name: 'register',
     component: () => import('../pages/Register')
+  },
+  {
+    path: "/user",
+    name: 'user',
+    component: () => import('../pages/User')
   },
   {
     path: "/",

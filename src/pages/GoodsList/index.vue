@@ -1,7 +1,7 @@
 <template>
   <div class="goodsList">
     <div class="goodsList-nav">
-      <van-nav-bar title="1號蔬菜當鋪" left-text="返回" left-arrow @click-left="toRoute">
+      <van-nav-bar :title="$route.query.pawnshop" left-text="返回" left-arrow @click-left="toRoute">
         <template #right>
           <van-icon name="search" size="18" />
         </template>
@@ -17,18 +17,18 @@
       </van-dropdown-menu>
       <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
         <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
-          <van-cell v-for="item in list" :key="item" @click="lookDetails">
+          <van-cell v-for="(item,index) in list" :key="index" @click="lookDetails(item)">
             <div class="goodsItem">
               <img class="goodsImg" :src="item.img" alt />
               <div class="goods">
                 <p class="goodsName">{{item.name}}</p>
                 <p class="goodsIntroduce">{{item.Introduce}}</p>
-                <span class="goodsDiscount">{{item.diec}}</span>
+                <!-- <span class="goodsDiscount">{{item.diec}}</span> -->
                 <p class="goodsPriceAndWeight">
                   <span>${{item.price}}</span>
                   <span>/{{item.weight}}</span>
                 </p>
-                <p class="goods-Add-Del" @click.stop="addGoods($event)">
+                <p class="goods-Add-Del" @click.stop="addGoods($event,item)">
                   <!-- <van-icon name="add" />
                   <van-icon
                     name="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3844800051,3102394607&fm=26&gp=0.jpg"
@@ -60,50 +60,21 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
   components: {},
-  mounted() {},
+  mounted() {
+    if (this.$route.query.goodsList) {
+      // this.$store.commit('Update_goodsList', this.$route.query.goodsList)
+      this.list = JSON.parse(this.$route.query.goodsList)
+    } else {
+      // this.list = this.goodsList
+    }
+  },
 
   data() {
     return {
-      list: [
-        {
-          name: '一休胡蘿蔔',
-          Introduce: '生吃口感更佳|清香脆甜',
-          diec: '滿一件換購肉蛋',
-          price: '9.9',
-          weight: '袋',
-          img:
-            'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3315062764,550271931&fm=26&gp=0.jpg',
-        },
-        {
-          name: '一休西蘭花',
-          Introduce: '产地直供 新鲜蔬菜',
-          diec: '滿一件換購蛋',
-          price: '9.9',
-          weight: '袋',
-          img:
-            'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1339765567,2883536074&fm=26&gp=0.jpg',
-        },
-        {
-          name: '一休胡蘿蔔',
-          Introduce: '生吃口感更佳|清香脆甜',
-          diec: '滿一件換購肉蛋',
-          price: '7.9',
-          weight: '袋',
-          img:
-            'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3265074805,3552067904&fm=26&gp=0.jpg',
-        },
-        {
-          name: '菠菜',
-          Introduce: '菠菜紅根菠菜赤根菜',
-          diec: '無',
-          price: '8.5',
-          weight: '袋',
-          img:
-            'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2341535068,152511721&fm=26&gp=0.jpg',
-        },
-      ],
+      list: [],
       loading: false,
       finished: false,
       refreshing: false,
@@ -113,7 +84,7 @@ export default {
       option: [
         { text: '全部商品', value: 0 },
         { text: '新款商品', value: 1 },
-        { text: '活动商品', value: 2 },
+        { text: '活動商品', value: 2 },
       ],
       option1: [
         { text: '默認價格排序', value: 0 },
@@ -153,7 +124,7 @@ export default {
     },
     onAddCartClicked() {},
     onBuyClicked() {},
-    addGoods(e) {
+    addGoods(e, item) {
       this.$refs.ball.style.top = e.pageY + 'px'
       this.$refs.ball.style.left = e.pageX + 'px'
       this.$refs.ball.style.transition = 'left 0s, top 0s'
@@ -164,13 +135,23 @@ export default {
         this.$refs.ball.style.left = 3.39 + 'rem'
         this.$refs.ball.style.transition = 'left 0.5s linear, top 0.5s ease-in'
       }, 20)
+      this.$store.commit('Update_shoppingCartList', item)
     },
-    lookDetails() {
-      this.$router.push({ path: '/goodsdetails' })
+    lookDetails(item) {
+      this.$router.push({
+        path: '/goodsdetails',
+        query: {
+          item: JSON.stringify(item),
+          pawnshop: JSON.stringify(this.$route.query.pawnshop),
+        },
+      })
     },
     toRoute() {
       this.$router.go(-1)
     },
+  },
+  computed: {
+    ...mapState({ goodsList: (state) => state.goodsList.goodsList }),
   },
 }
 </script>
@@ -233,6 +214,14 @@ export default {
       .goodsIntroduce {
         color: #cccccc;
         padding: 5px 0px;
+        white-space: pre-wrap;
+        font-size: 13px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+
+        -webkit-line-clamp: 2;
       }
       .goodsPriceAndWeight {
         span {

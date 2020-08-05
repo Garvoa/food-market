@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Button, Field, Icon, Tabbar, TabbarItem, Swipe, SwipeItem, Overlay, Tab, Tabs, Dialog, Form, Toast, TreeSelect, Search, PullRefresh, ActionSheet, Cell, List, RadioGroup, Radio, Loading, GoodsAction, GoodsActionButton, GoodsActionIcon, DropdownMenu, DropdownItem, Popup, Collapse, CollapseItem, NavBar, switchCell, sku, shareSheet, ImagePreview, Col, Row, Stepper, Checkbox, CheckboxGroup, Calendar, DatetimePicker, AddressEdit, AddressList, } from 'vant';
+import { Button, Field, Icon, Tabbar, TabbarItem, Swipe, SwipeItem, Overlay, Tab, Tabs, Dialog, Form, Toast, TreeSelect, Search, PullRefresh, ActionSheet, Cell, List, RadioGroup, Radio, Loading, GoodsAction, GoodsActionButton, GoodsActionIcon, DropdownMenu, DropdownItem, Popup, Collapse, CollapseItem, NavBar, switchCell, sku, shareSheet, ImagePreview, Col, Row, Stepper, Checkbox, CheckboxGroup, Calendar, DatetimePicker, AddressEdit, AddressList, Notify, Card, Tag } from 'vant';
 
 Vue.use(Radio);
 Vue.use(RadioGroup);
@@ -45,3 +45,6 @@ Vue.use(Calendar)
 Vue.use(DatetimePicker)
 Vue.use(AddressEdit)
 Vue.use(AddressList)
+Vue.use(Notify)
+Vue.use(Card)
+Vue.use(Tag)

@@ -69,21 +69,18 @@
             <van-dropdown-item v-model="value2" :options="option2" />
           </van-dropdown-menu>
           <ul class="pawnshopList">
-            <li class="pawnshopItem" @click="toGoodsList">
+            <li class="pawnshopItem" @click="toGoodsList('item0','養生草堂')">
               <div class="shop-food">
                 <div class="shop-logo">
-                  <img
-                    src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3826298508,3900552259&fm=26&gp=0.jpg"
-                    alt
-                  />
+                  <img src alt />
                 </div>
                 <div class="shop-inner">
                   <div class="shop-top">
-                    <span>香港1号蔬菜当铺</span>
-                    <p>正在营业</p>
+                    <span>養生草堂</span>
+                    <p>正在營業</p>
                   </div>
                   <div class="shop-centent">
-                    <span>早9:00~次日07:00</span>
+                    <span>早9:00晚9:00</span>
                     <p>1.71km</p>
                   </div>
                   <div class="shop-bottom">
@@ -99,7 +96,38 @@
                   name="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4006616099,3005619785&fm=26&gp=0.jpg"
                 ></van-icon>
                 <span>温馨提示:</span>
-                <span>本店已全面消毒、卫生干净、放心食用</span>
+                <span>本店已全面消毒、衛生乾淨、放心食用</span>
+              </div>
+            </li>
+
+            <li class="pawnshopItem" @click="toGoodsList('item0','野菜先生')">
+              <div class="shop-food">
+                <div class="shop-logo">
+                  <img src alt />
+                </div>
+                <div class="shop-inner">
+                  <div class="shop-top">
+                    <span>野菜先生</span>
+                    <p>正在營業</p>
+                  </div>
+                  <div class="shop-centent">
+                    <span>早9:00晚9:00</span>
+                    <p>1.71km</p>
+                  </div>
+                  <div class="shop-bottom">
+                    <van-icon
+                      name="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596014503371&di=68948af4ed70aaa0863b9df8fd3b66d1&imgtype=0&src=http%3A%2F%2Fpic.soutu123.cn%2Felement_origin_min_pic%2F01%2F37%2F57%2F08573c5452610ec.jpg%2521%2Ffw%2F700%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue"
+                    ></van-icon>香港中环遮打道18号
+                  </div>
+                </div>
+                <div class="line"></div>
+              </div>
+              <div class="shop-footer">
+                <van-icon
+                  name="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4006616099,3005619785&fm=26&gp=0.jpg"
+                ></van-icon>
+                <span>温馨提示:</span>
+                <span>本店已全面消毒、衛生乾淨、放心食用</span>
               </div>
             </li>
           </ul>
@@ -110,21 +138,18 @@
             <van-dropdown-item v-model="value2" :options="option2" />
           </van-dropdown-menu>
           <ul class="pawnshopList">
-            <li class="pawnshopItem" @click="toGoodsList">
+            <li class="pawnshopItem" @click="toGoodsList('item1','香港家豬肉類店鋪')">
               <div class="shop-food">
                 <div class="shop-logo">
-                  <img
-                    src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3826298508,3900552259&fm=26&gp=0.jpg"
-                    alt
-                  />
+                  <img src="../../assets/448151630253593388.jpg" alt />
                 </div>
                 <div class="shop-inner">
                   <div class="shop-top">
-                    <span>香港1号肉类当铺</span>
-                    <p>正在营业</p>
+                    <span>香港家豬肉類店鋪</span>
+                    <p>正在營業</p>
                   </div>
                   <div class="shop-centent">
-                    <span>早9:00~次日07:00</span>
+                    <span>早9:00晚9:00</span>
                     <p>1.71km</p>
                   </div>
                   <div class="shop-bottom">
@@ -140,7 +165,68 @@
                   name="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4006616099,3005619785&fm=26&gp=0.jpg"
                 ></van-icon>
                 <span>温馨提示:</span>
-                <span>本店已全面消毒、卫生干净、放心食用</span>
+                <span>本店已全面消毒、衛生乾淨、放心食用</span>
+              </div>
+            </li>
+            <li class="pawnshopItem" @click="toGoodsList('item1','叻叻豬肉類店鋪')">
+              <div class="shop-food">
+                <div class="shop-logo">
+                  <img src="../../assets/213545432795218236.jpg" alt />
+                </div>
+                <div class="shop-inner">
+                  <div class="shop-top">
+                    <span>叻叻豬肉類店鋪</span>
+                    <p>正在營業</p>
+                  </div>
+                  <div class="shop-centent">
+                    <span>早9:00晚9:00</span>
+                    <p>1.71km</p>
+                  </div>
+                  <div class="shop-bottom">
+                    <van-icon
+                      name="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596014503371&di=68948af4ed70aaa0863b9df8fd3b66d1&imgtype=0&src=http%3A%2F%2Fpic.soutu123.cn%2Felement_origin_min_pic%2F01%2F37%2F57%2F08573c5452610ec.jpg%2521%2Ffw%2F700%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue"
+                    ></van-icon>香港中环遮打道18号
+                  </div>
+                </div>
+                <div class="line"></div>
+              </div>
+              <div class="shop-footer">
+                <van-icon
+                  name="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4006616099,3005619785&fm=26&gp=0.jpg"
+                ></van-icon>
+                <span>温馨提示:</span>
+                <span>本店已全面消毒、衛生乾淨、放心食用</span>
+              </div>
+            </li>
+
+            <li class="pawnshopItem" @click="toGoodsList('item1','啟發牛肉')">
+              <div class="shop-food">
+                <div class="shop-logo">
+                  <img src alt />
+                </div>
+                <div class="shop-inner">
+                  <div class="shop-top">
+                    <span>啟發牛肉</span>
+                    <p>正在營業</p>
+                  </div>
+                  <div class="shop-centent">
+                    <span>早9:00晚9:00</span>
+                    <p>1.71km</p>
+                  </div>
+                  <div class="shop-bottom">
+                    <van-icon
+                      name="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596014503371&di=68948af4ed70aaa0863b9df8fd3b66d1&imgtype=0&src=http%3A%2F%2Fpic.soutu123.cn%2Felement_origin_min_pic%2F01%2F37%2F57%2F08573c5452610ec.jpg%2521%2Ffw%2F700%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue"
+                    ></van-icon>香港中环遮打道18号
+                  </div>
+                </div>
+                <div class="line"></div>
+              </div>
+              <div class="shop-footer">
+                <van-icon
+                  name="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4006616099,3005619785&fm=26&gp=0.jpg"
+                ></van-icon>
+                <span>温馨提示:</span>
+                <span>本店已全面消毒、衛生乾淨、放心食用</span>
               </div>
             </li>
           </ul>
@@ -151,21 +237,18 @@
             <van-dropdown-item v-model="value2" :options="option2" />
           </van-dropdown-menu>
           <ul class="pawnshopList">
-            <li class="pawnshopItem" @click="toGoodsList">
+            <li class="pawnshopItem" @click="toGoodsList('item2','香港家豬冰鲜肉店鋪')">
               <div class="shop-food">
                 <div class="shop-logo">
-                  <img
-                    src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3826298508,3900552259&fm=26&gp=0.jpg"
-                    alt
-                  />
+                  <img src="../../assets/448151630253593388.jpg" alt />
                 </div>
                 <div class="shop-inner">
                   <div class="shop-top">
-                    <span>香港1号冰鲜肉当铺</span>
-                    <p>正在营业</p>
+                    <span>香港家豬冰鲜肉店鋪</span>
+                    <p>正在營業</p>
                   </div>
                   <div class="shop-centent">
-                    <span>早9:00~次日07:00</span>
+                    <span>早9:00晚9:00</span>
                     <p>1.71km</p>
                   </div>
                   <div class="shop-bottom">
@@ -181,7 +264,37 @@
                   name="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4006616099,3005619785&fm=26&gp=0.jpg"
                 ></van-icon>
                 <span>温馨提示:</span>
-                <span>本店已全面消毒、卫生干净、放心食用</span>
+                <span>本店已全面消毒、衛生乾淨、放心食用</span>
+              </div>
+            </li>
+            <li class="pawnshopItem" @click="toGoodsList('item2','叻叻豬冰鲜肉店鋪')">
+              <div class="shop-food">
+                <div class="shop-logo">
+                  <img src="../../assets/213545432795218236.jpg" alt />
+                </div>
+                <div class="shop-inner">
+                  <div class="shop-top">
+                    <span>叻叻豬冰鲜肉店鋪</span>
+                    <p>正在營業</p>
+                  </div>
+                  <div class="shop-centent">
+                    <span>早9:00晚9:00</span>
+                    <p>1.71km</p>
+                  </div>
+                  <div class="shop-bottom">
+                    <van-icon
+                      name="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596014503371&di=68948af4ed70aaa0863b9df8fd3b66d1&imgtype=0&src=http%3A%2F%2Fpic.soutu123.cn%2Felement_origin_min_pic%2F01%2F37%2F57%2F08573c5452610ec.jpg%2521%2Ffw%2F700%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue"
+                    ></van-icon>香港中环遮打道18号
+                  </div>
+                </div>
+                <div class="line"></div>
+              </div>
+              <div class="shop-footer">
+                <van-icon
+                  name="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4006616099,3005619785&fm=26&gp=0.jpg"
+                ></van-icon>
+                <span>温馨提示:</span>
+                <span>本店已全面消毒、衛生乾淨、放心食用</span>
               </div>
             </li>
           </ul>
@@ -192,21 +305,18 @@
             <van-dropdown-item v-model="value2" :options="option2" />
           </van-dropdown-menu>
           <ul class="pawnshopList">
-            <li class="pawnshopItem" @click="toGoodsList">
+            <li class="pawnshopItem" @click="toGoodsList('item3','香港家豬魚類店鋪')">
               <div class="shop-food">
                 <div class="shop-logo">
-                  <img
-                    src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3826298508,3900552259&fm=26&gp=0.jpg"
-                    alt
-                  />
+                  <img src="../../assets/448151630253593388.jpg" alt />
                 </div>
                 <div class="shop-inner">
                   <div class="shop-top">
-                    <span>香港1号鱼类当铺</span>
-                    <p>正在营业</p>
+                    <span>香港家豬魚類店鋪</span>
+                    <p>正在營業</p>
                   </div>
                   <div class="shop-centent">
-                    <span>早9:00~次日07:00</span>
+                    <span>早9:00晚9:00</span>
                     <p>1.71km</p>
                   </div>
                   <div class="shop-bottom">
@@ -222,7 +332,37 @@
                   name="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4006616099,3005619785&fm=26&gp=0.jpg"
                 ></van-icon>
                 <span>温馨提示:</span>
-                <span>本店已全面消毒、卫生干净、放心食用</span>
+                <span>本店已全面消毒、衛生乾淨、放心食用</span>
+              </div>
+            </li>
+            <li class="pawnshopItem" @click="toGoodsList('item3','叻叻豬魚類店鋪')">
+              <div class="shop-food">
+                <div class="shop-logo">
+                  <img src="../../assets/213545432795218236.jpg" alt />
+                </div>
+                <div class="shop-inner">
+                  <div class="shop-top">
+                    <span>叻叻豬魚類店鋪</span>
+                    <p>正在營業</p>
+                  </div>
+                  <div class="shop-centent">
+                    <span>早9:00晚9:00</span>
+                    <p>1.71km</p>
+                  </div>
+                  <div class="shop-bottom">
+                    <van-icon
+                      name="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596014503371&di=68948af4ed70aaa0863b9df8fd3b66d1&imgtype=0&src=http%3A%2F%2Fpic.soutu123.cn%2Felement_origin_min_pic%2F01%2F37%2F57%2F08573c5452610ec.jpg%2521%2Ffw%2F700%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue"
+                    ></van-icon>香港中环遮打道18号
+                  </div>
+                </div>
+                <div class="line"></div>
+              </div>
+              <div class="shop-footer">
+                <van-icon
+                  name="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4006616099,3005619785&fm=26&gp=0.jpg"
+                ></van-icon>
+                <span>温馨提示:</span>
+                <span>本店已全面消毒、衛生乾淨、放心食用</span>
               </div>
             </li>
           </ul>
@@ -233,21 +373,18 @@
             <van-dropdown-item v-model="value2" :options="option2" />
           </van-dropdown-menu>
           <ul class="pawnshopList">
-            <li class="pawnshopItem" @click="toGoodsList">
+            <li class="pawnshopItem" @click="toGoodsList('item4','十分淡水新鮮水果')">
               <div class="shop-food">
                 <div class="shop-logo">
-                  <img
-                    src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3826298508,3900552259&fm=26&gp=0.jpg"
-                    alt
-                  />
+                  <img src alt />
                 </div>
                 <div class="shop-inner">
                   <div class="shop-top">
-                    <span>香港1号生果当铺</span>
-                    <p>正在营业</p>
+                    <span>十分淡水新鮮水果</span>
+                    <p>正在營業</p>
                   </div>
                   <div class="shop-centent">
-                    <span>早9:00~次日07:00</span>
+                    <span>早9:00晚9:00</span>
                     <p>1.71km</p>
                   </div>
                   <div class="shop-bottom">
@@ -263,7 +400,7 @@
                   name="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4006616099,3005619785&fm=26&gp=0.jpg"
                 ></van-icon>
                 <span>温馨提示:</span>
-                <span>本店已全面消毒、卫生干净、放心食用</span>
+                <span>本店已全面消毒、衛生乾淨、放心食用</span>
               </div>
             </li>
           </ul>
@@ -274,21 +411,18 @@
             <van-dropdown-item v-model="value2" :options="option2" />
           </van-dropdown-menu>
           <ul class="pawnshopList">
-            <li class="pawnshopItem" @click="toGoodsList">
+            <li class="pawnshopItem" @click="toGoodsList('item5','叻叻豬海鮮店鋪')">
               <div class="shop-food">
                 <div class="shop-logo">
-                  <img
-                    src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3826298508,3900552259&fm=26&gp=0.jpg"
-                    alt
-                  />
+                  <img src="../../assets/213545432795218236.jpg" alt />
                 </div>
                 <div class="shop-inner">
                   <div class="shop-top">
-                    <span>香港1号海鲜当铺</span>
-                    <p>正在营业</p>
+                    <span>叻叻豬海鮮店鋪</span>
+                    <p>正在營業</p>
                   </div>
                   <div class="shop-centent">
-                    <span>早9:00~次日07:00</span>
+                    <span>早9:00晚9:00</span>
                     <p>1.71km</p>
                   </div>
                   <div class="shop-bottom">
@@ -304,7 +438,67 @@
                   name="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4006616099,3005619785&fm=26&gp=0.jpg"
                 ></van-icon>
                 <span>温馨提示:</span>
-                <span>本店已全面消毒、卫生干净、放心食用</span>
+                <span>本店已全面消毒、衛生乾淨、放心食用</span>
+              </div>
+            </li>
+            <li class="pawnshopItem" @click="toGoodsList('item5','養生草堂')">
+              <div class="shop-food">
+                <div class="shop-logo">
+                  <img src alt />
+                </div>
+                <div class="shop-inner">
+                  <div class="shop-top">
+                    <span>養生草堂</span>
+                    <p>正在營業</p>
+                  </div>
+                  <div class="shop-centent">
+                    <span>早9:00晚9:00</span>
+                    <p>1.71km</p>
+                  </div>
+                  <div class="shop-bottom">
+                    <van-icon
+                      name="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596014503371&di=68948af4ed70aaa0863b9df8fd3b66d1&imgtype=0&src=http%3A%2F%2Fpic.soutu123.cn%2Felement_origin_min_pic%2F01%2F37%2F57%2F08573c5452610ec.jpg%2521%2Ffw%2F700%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue"
+                    ></van-icon>香港中环遮打道18号
+                  </div>
+                </div>
+                <div class="line"></div>
+              </div>
+              <div class="shop-footer">
+                <van-icon
+                  name="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4006616099,3005619785&fm=26&gp=0.jpg"
+                ></van-icon>
+                <span>温馨提示:</span>
+                <span>本店已全面消毒、衛生乾淨、放心食用</span>
+              </div>
+            </li>
+            <li class="pawnshopItem" @click="toGoodsList('item5','啟發牛肉')">
+              <div class="shop-food">
+                <div class="shop-logo">
+                  <img src alt />
+                </div>
+                <div class="shop-inner">
+                  <div class="shop-top">
+                    <span>啟發牛肉</span>
+                    <p>正在營業</p>
+                  </div>
+                  <div class="shop-centent">
+                    <span>早9:00晚9:00</span>
+                    <p>1.71km</p>
+                  </div>
+                  <div class="shop-bottom">
+                    <van-icon
+                      name="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596014503371&di=68948af4ed70aaa0863b9df8fd3b66d1&imgtype=0&src=http%3A%2F%2Fpic.soutu123.cn%2Felement_origin_min_pic%2F01%2F37%2F57%2F08573c5452610ec.jpg%2521%2Ffw%2F700%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue"
+                    ></van-icon>香港中环遮打道18号
+                  </div>
+                </div>
+                <div class="line"></div>
+              </div>
+              <div class="shop-footer">
+                <van-icon
+                  name="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4006616099,3005619785&fm=26&gp=0.jpg"
+                ></van-icon>
+                <span>温馨提示:</span>
+                <span>本店已全面消毒、衛生乾淨、放心食用</span>
               </div>
             </li>
           </ul>
@@ -335,25 +529,10 @@
           </p>
           <img src="../../assets/8fd196fd-f8d8-4967-834e-73dedc97d5d6.png" alt />
           <ul class="list">
-            <li class="item">
-              <img src="../../assets/fd0936c1-ab16-4316-9f25-d799f2020bc0.png" alt />
-              <span>永佑加拿大猪肋排800g排骨猪肉冷鏈生鮮燉湯</span>
-              <span>$63.8</span>
-            </li>
-            <li class="item">
-              <img src="../../assets/20200731115130.png" alt />
-              <span>天譜樂食澳大利亞原切M3雪花烤肉片200g進口穀飼牛肉片安格斯烤肉食材生鮮</span>
-              <span>$87.8</span>
-            </li>
-            <li class="item">
-              <img src="../../assets/3efaebca-6bde-4e70-8344-c0bfa279740a.png" alt />
-              <span>首食惠紐西蘭羔羊肉片500g/袋首農出品羊排肉卷火鍋食材</span>
-              <span>$358.8</span>
-            </li>
-            <li class="item">
-              <img src="../../assets/16a57ee6-d2c9-4c9c-a985-c2dfa48180a6.png" alt />
-              <span>華英贛南散養生態麻鴨1.25kg新鮮鴨肉整鴨土鴨</span>
-              <span>$93.5</span>
+            <li class="item" v-for="(i,index) in item" :key="index" @click="toGoods(index)">
+              <img :src="i.img" alt />
+              <span>{{i.name}}</span>
+              <span>${{i.price}}</span>
             </li>
           </ul>
         </div>
@@ -363,7 +542,7 @@
 </template>
 <script>
 import Swiper from 'swiper'
-// import IScroll from 'iscroll/build/iscroll-probe'
+
 export default {
   components: {},
   data() {
@@ -372,16 +551,299 @@ export default {
       isActive: 6,
       value1: 0,
       value2: 'a',
+      item: [
+        {
+          name: '永佑加拿大豬肋排',
+          Introduce: '永佑加拿大豬肋排800g排骨豬肉冷鏈生鮮燉湯',
+          diec: '滿一件換購肉蛋',
+          price: 63,
+          weight: '袋',
+          img: 'img/5ba54486-c8c7-408c-8cd2-e17a650053ae.png',
+          list: ['img/zhurou1.png', 'img/zhurou2.png'],
+        },
+        {
+          name: '穀飼牛肉片',
+          Introduce:
+            '天譜樂食澳大利亞原切M3雪花烤肉片進口穀飼牛肉片安格斯烤肉食材生鮮',
+          diec: '滿一件換購蛋',
+          price: 87,
+          weight: '袋',
+          img: 'img/20200731115130.png',
+          list: ['img/zhurou1.png', 'img/zhurou2.png'],
+        },
+        {
+          name: '惠紐西蘭羔羊肉片',
+          Introduce: '首食惠紐西蘭羔羊肉片/袋首農出品羊排肉卷火鍋食材',
+          diec: '滿一件換購肉蛋',
+          price: 358,
+          weight: '袋',
+          img: 'img/3efaebca-6bde-4e70-8344-c0bfa279740a.png',
+          list: ['img/zhurou1.png', 'img/zhurou2.png'],
+        },
+        {
+          name: '華英贛南散養生態麻鴨',
+          Introduce: '華英贛南散養生態麻鴨',
+          diec: '無',
+          price: 93,
+          weight: '袋',
+          img: 'img/16a57ee6-d2c9-4c9c-a985-c2dfa48180a6.png',
+          list: ['img/zhurou1.png', 'img/zhurou2.png'],
+        },
+      ],
       option1: [
-        { text: '全部当铺', value: 0 },
-        { text: '最新当铺', value: 1 },
-        { text: '老字号', value: 2 },
+        { text: '全部店鋪', value: 0 },
+        { text: '最新店鋪', value: 1 },
       ],
       option2: [
         { text: '默认排序', value: 'a' },
         { text: '好评排序', value: 'b' },
         { text: '销量排序', value: 'c' },
       ],
+      goodsList: {
+        item0: [
+          {
+            name: '一休胡蘿蔔',
+            Introduce: '生吃口感更佳|清香脆甜',
+            diec: '滿一件換購肉蛋',
+            price: 9,
+            weight: '袋',
+            img:
+              'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3315062764,550271931&fm=26&gp=0.jpg',
+            list: ['img/huoluobo1.png', 'img/huoluobo2.png'],
+          },
+          {
+            name: '一休西蘭花',
+            Introduce: '產地直供 新鮮蔬菜',
+            diec: '滿一件換購蛋',
+            price: 9,
+            weight: '袋',
+            img:
+              'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1339765567,2883536074&fm=26&gp=0.jpg',
+            list: ['img/xilanhua1.png', 'img/xilanhua2.png'],
+          },
+          {
+            name: '白菜',
+            Introduce: '生吃口感更佳|清香脆甜',
+            diec: '滿一件換購肉蛋',
+            price: 7,
+            weight: '袋',
+            img:
+              'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3265074805,3552067904&fm=26&gp=0.jpg',
+            list: ['img/baicai1.png', 'img/baicai2.png'],
+          },
+          {
+            name: '菠菜',
+            Introduce: '菠菜紅根菠菜赤根菜',
+            diec: '無',
+            price: 8,
+            weight: '袋',
+            img:
+              'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2341535068,152511721&fm=26&gp=0.jpg',
+            list: ['img/bocai1.png', 'img/bocai2.png'],
+          },
+        ],
+        item2: [
+          {
+            img: 'img/jinkou.png',
+            name: '澳洲進口冰鮮肉',
+            Introduce:
+              '澳大利亞進口冰鮮肉牛腩禮盒和牛M8-9級牛腩穀飼原切牛肉1200g',
+            price: 580,
+            weight: '袋',
+            diec: '贈送雞蛋一個',
+            list: ['img/jinkourou1.png', 'img/jinkourou2.png'],
+          },
+          {
+            img: 'img/niunan.png',
+            name: '冷鮮和牛牛腩700g盒',
+            Introduce: '【冰鮮肉】冷鮮和牛牛腩700g盒原切牛肉穀飼600+天元盛生鮮',
+            price: 65,
+            weight: '袋',
+            diec: '贈送雞蛋一個',
+            list: ['img/heniu1.png', 'img/heniu2.png'],
+          },
+          {
+            img: 'img/niujian.png',
+            name: ' 冷鮮和牛腱子1kg盒',
+            Introduce:
+              '【冰鮮肉】龍江和牛冷鮮和牛腱子1kg盒原切牛肉穀飼600+天元盛生鮮',
+            price: 45,
+            weight: '袋',
+            diec: '贈送雞蛋一個',
+            list: ['img/niujianzi1.png', 'img/niujianzi2.png'],
+          },
+          {
+            img: 'img/heimao.png',
+            name: 'A3眼肉牛排250g盒',
+            Introduce:
+              '【冰鮮肉】龍江和牛國產A3眼肉牛排250g盒原切牛肉生鮮穀飼600+天',
+            price: 55,
+            weight: '袋',
+            diec: '贈送雞蛋一個',
+            list: ['img/niupai1.png', 'img/niupai2.png'],
+          },
+        ],
+        item3: [
+          {
+            img: 'img/haiyang.png',
+            name: '黃花魚700g',
+            Introduce: '深海速凍寧德大黃花魚700g 2條生鮮海鮮水產',
+            price: 620,
+            weight: '袋',
+            diec: '買送雞蛋一個',
+            list: ['img/huanghuayu1.png', 'img/huanghuayu2.png'],
+          },
+          {
+            img: 'img/haishang.png',
+            name: '白蕉海鱸魚',
+            Introduce:
+              '白蕉海鱸魚三去淨膛500~600g(珠海地標特產CNAS認證)燒烤食材海鮮',
+            price: 95,
+            weight: '袋',
+            diec: '買送雞蛋一個',
+            list: ['img/baijiaoyu1.png'],
+          },
+          {
+            img: 'img/sandu.png',
+            name: '活凍三去海鱸魚',
+            Introduce: '活凍三去海鱸魚500g/條內附料包自營海產',
+            price: 52,
+            weight: '袋',
+            diec: '買送雞蛋一個',
+            list: ['img/baijiaoyu2.png'],
+          },
+          {
+            img: 'img/xiangtai.png',
+            name: '金鯧魚900g',
+            Introduce: '金鯧魚900g（2條）深海養殖捕撈 無公害認證 全程可追溯',
+            price: 90,
+            weight: '袋',
+            diec: '買送雞蛋一個',
+            list: ['img/jinqiangyu1.png', 'img/jinqiangyu2.png'],
+          },
+        ],
+        item4: [
+          {
+            img: 'img/mihoutao.png',
+            name: '奇異果',
+            Introduce: '奇異果生鮮水果紅心奇異果15粒裝70-90g鮮果',
+            price: 620,
+            weight: '袋',
+            diec: '買送雞蛋一個',
+            list: ['img/qiyiguo1.png'],
+          },
+          {
+            img: 'img/liulian.png',
+            name: '榴槤2-2.5kg',
+            Introduce: '泰國進口金枕頭榴槤2-2.5kg 1個裝新鮮水果',
+            price: 95,
+            weight: '袋',
+            diec: '買送雞蛋一個',
+            list: ['img/liulian1.png', 'img/liulian2.png'],
+          },
+          {
+            img: 'img/xigua.png',
+            name: '麒麟西瓜',
+            Introduce: '麒麟西瓜1粒裝單果2.5kg以上新鮮水果',
+            price: 52,
+            weight: '袋',
+            diec: '買送雞蛋一個',
+            list: ['img/xigua1.png', 'img/xigua2.png'],
+          },
+          {
+            img: 'img/huolongguo.png',
+            name: '紅心火龍果',
+            Introduce:
+              '紅心火龍果新鮮水果5斤裝天生外表幹鄒個頭小帶箱5斤中小果（8-11個）',
+            price: 90,
+            weight: '袋',
+            diec: '買送雞蛋一個',
+            list: [
+              'img/huolongguo1.png',
+              'img/huolongguo2.png',
+              'img/huolongguo3.png',
+            ],
+          },
+        ],
+        item5: [
+          {
+            img: 'img/xia.png',
+            name: '大閘蟹',
+            Introduce: '蟹大黃多  死蟹無黃包賠 18只2.2-1.6兩大閘蟹',
+            price: 620,
+            weight: '袋',
+            diec: '買送雞蛋一個',
+            list: ['img/dazhaxie1.png', 'img/dazhaxie2.png'],
+          },
+          {
+            img: 'img/xia2.png ',
+            name: '加拿大龍蝦400-550g',
+            Introduce: '加拿大龍蝦400-550g',
+            price: 95,
+            weight: '袋',
+            diec: '買送雞蛋一個',
+            list: ['img/longxia1.png'],
+          },
+          {
+            img: 'img/shuizhi.png',
+            name: '水產遼刺參高品質7年500g',
+            Introduce:
+              '參福元長島即食海參海鮮水產遼刺參高品質7年500g 7-9頭買一斤送一斤',
+            price: 52,
+            weight: '袋',
+            diec: '買送雞蛋一個',
+            list: ['img/haishen1.png', 'img/haishen2.png'],
+          },
+          {
+            img: 'img/xia1.png',
+            name: '禧美厄瓜多爾白蝦',
+            Introduce:
+              '禧美厄瓜多爾白蝦淨重1.8kg 90-108只/盒大蝦原裝進口海鮮水產',
+            price: 90,
+            weight: '袋',
+            diec: '買送雞蛋一個',
+            list: ['img/xiaoxia1.png', 'img/xiaoxia2.png'],
+          },
+        ],
+        item1: [
+          {
+            img: 'img/meihua.png',
+            name: '黑豬肉梅花肉450g',
+            Introduce: '豬頸肉雪花豬肉林間生長360天烤肉燒烤食材',
+            price: 55,
+            weight: '袋',
+            diec: '梅菜扣肉好吃',
+            list: ['img/zhurou1.png', 'img/zhurou2.png'],
+          },
+          {
+            img: 'img/paigu.png',
+            name: '黑豬肉排骨450g',
+            Introduce: '豬頸肉雪花豬肉林間生長360天烤肉燒烤食材',
+            price: 65,
+            weight: '袋',
+            diec: '清蒸排骨好吃',
+            list: ['img/zhurou3.png', 'img/zhurou4.png'],
+          },
+          {
+            img: 'img/rouxian.png',
+            name: '黑豬肉肉餡450g',
+            Introduce: '豬頸肉雪花豬肉林間生長360天烤肉燒烤食材',
+            price: 45,
+            weight: '袋',
+            diec: '肉餡餃子好吃',
+            list: ['img/zhurou5.png', 'img/zhurou6.png'],
+          },
+          {
+            img: 'img/wuhua.png',
+            name: '黑豬肉五花肉450g',
+            Introduce: '豬頸肉雪花豬肉林間生長360天烤肉燒烤食材',
+            price: 55,
+            weight: '袋',
+            diec: '燜五花肉好吃',
+            list: ['img/zhurou7.png', 'img/zhurou2.png'],
+          },
+        ],
+      },
     }
   },
   mounted() {
@@ -414,8 +876,17 @@ export default {
     switchPawnshop(num) {
       this.isActive = num
     },
-    toGoodsList() {
-      this.$router.push({ path: '/goodslist' })
+    toGoodsList(item, pawnshop) {
+      this.$router.push({
+        path: '/goodslist',
+        query: { goodsList: JSON.stringify(this.goodsList[item]), pawnshop },
+      })
+    },
+    toGoods(index) {
+      this.$router.push({
+        path: '/goodsdetails',
+        query: { item: JSON.stringify(this.item[index]) },
+      })
     },
   },
 }
@@ -426,6 +897,7 @@ export default {
   height: 100%;
   box-sizing: border-box;
   overflow: hidden;
+
   .pawnshop-nav-wrap {
     width: 100%;
     overflow: auto;
@@ -466,6 +938,7 @@ export default {
     height: 510px;
     box-sizing: content-box;
     // background-color: #dddddd;
+    overflow: auto;
   }
   .pawnshopList-max {
     box-sizing: border-box;
@@ -501,6 +974,11 @@ export default {
           .shop-top {
             display: flex;
             justify-content: space-between;
+            span {
+              &:nth-child(1) {
+                font-weight: 600;
+              }
+            }
             p {
               padding: 0px;
               margin: 0px;
