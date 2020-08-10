@@ -3,11 +3,7 @@
   <div class="headerWrap">
     <header>
       <div class="head-left">
-        <van-icon
-          name="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2020023918,3925028839&fm=26&gp=0.jpg"
-          @click="showPopup"
-        />
-        <!-- <span>{{user.username}}</span> -->
+        <img src="../../assets/20200805173048.png" alt @click="showPopup" />
         <router-link to="/home">
           <van-icon name="img/wangon_logo.png" />
           <!-- <span>日日良食</span> -->
@@ -16,7 +12,7 @@
       <div class="head-right">
         <!-- <van-icon name="location-o" /> -->
         <van-icon name="friends-o" @click="toUser">
-          <span>{{user.username||'登錄'}}</span>
+          <!-- <span>{{isLogin&&user.username ?user.username }}</span> -->
         </van-icon>
         <van-icon name="shopping-cart" class="shopping-cart" @click="toShoppingCart ">
           <i class="num">{{shoppingCartList.length}}</i>
@@ -32,7 +28,7 @@
     >
       <div class="islogin" :style="{display:isLogin?'block':'none'}">
         <span>歡迎{{user.username}}用戶</span>
-        <!-- <van-button @click="toOut" size="small" type="danger">退出登錄</van-button> -->
+        <van-button @click="toOut" size="small" type="danger">退出登錄</van-button>
       </div>
       <div class="login-and-register" :style="{display:isLogin?'none':'block'}">
         <router-link to="/login">
@@ -68,6 +64,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { Dialog } from 'vant'
 export default {
   props: {
     closeRotation: Function,
@@ -104,10 +101,19 @@ export default {
       this.show = !this.show
     },
     toOut() {
-      this.$store.commit('Update_isLogin', false)
+      Dialog.confirm({
+        title: '*** 溫馨提示 ***',
+        message: '你確定要退出登錄嗎',
+      })
+        .then(() => {
+          this.$store.commit('Update_isLogin', false)
+        })
+        .catch(() => {
+          // on cancel
+        })
     },
     toUser() {
-      if (this.user.username) {
+      if (this.user.username && this.isLogin) {
         this.$router.push({ path: '/user' })
       } else {
         this.$router.push({ path: '/login' })
@@ -192,7 +198,10 @@ header {
       &:nth-last-child(1) {
         position: absolute;
         top: 10px;
-
+        width: 40%;
+        left: 0px;
+        right: 0px;
+        margin: auto;
         img {
           width: 80%;
         }
@@ -232,6 +241,10 @@ header {
 .islogin {
   padding: 20px 10px;
   text-align: center;
+  button {
+    display: block;
+    margin: 10px auto;
+  }
 }
 .van-popup {
   // background-color: #dddddd !important;

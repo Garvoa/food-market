@@ -1,8 +1,7 @@
-import goodsList from "./goodsList"
-import ShoppingCart from "./ShoppingCart"
+import outerLayer from "./outerLayer"
+import categoryList from "./categoryList"
+import attrBute from "./attrBute"
 import pay from "./pay"
-import login from "./login"
 export default {
-  goodsList, ShoppingCart, pay, login
-
+  outerLayer, categoryList, attrBute, pay
 }

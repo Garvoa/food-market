@@ -1,182 +1,146 @@
 <template>
-  <div class="user-wrap">
-    <van-row>
-      <van-col span="24">
-        <div class="user-left">
-          <van-icon name="https://b.yzcdn.cn/vant/icon-demo-1126.png" class="userIcon" />
-          <span>用戶名：小白</span>
+  <div class="user">
+    <div class="user-head">
+      <!-- <h3>我的</h3> -->
+      <van-row align="center" type="flex">
+        <van-col span="6">
+          <img src="../../assets/imgs/e8ddcb13-53d6-429f-9528-514f82473332.png" alt />
+        </van-col>
+        <van-col span="10">
+          <div class="user-head-center">
+            <p class="name">和平用戶792564123</p>
+            <p class="vip">vip用戶</p>
+          </div>
+        </van-col>
+        <van-col span="8">
+          <div class="user-head-right">
+            <p>
+              <van-icon name="gem" />
+              <span>立即開通會員</span>
+            </p>
+          </div>
+        </van-col>
+      </van-row>
+    </div>
+    <div class="user-content">
+      <div class="user-content-head">
+        <p>錢包餘額</p>
+        <p>￥0.00</p>
+        <div class="payment">
+          <van-button round>立即充值</van-button>
+          <van-button round>在餐廳付款</van-button>
         </div>
-      </van-col>
+      </div>
+      <div class="user-content-center">
+        <van-cell title="所有訂單" is-link />
+        <van-cell title="配送地址" is-link />
+      </div>
+      <div class="user-content-center">
+        <van-cell title="優惠劵" is-link />
 
-      <van-col span="24">
-        <div class="user-left">
-          <span>郵箱:</span>
-          <span>Ebs.terrychan@gmail.com</span>
-        </div>
-      </van-col>
-      <van-col span="24">
-        <div class="user-left">
-          <span>卡號:</span>
-          <span>NGO00002</span>
-        </div>
-      </van-col>
-      <van-col span="6">
-        <div class="user-bottom">
-          <p>0</p>
-          <p>優惠劵</p>
-        </div>
-      </van-col>
-      <van-col span="6">
-        <div class="user-bottom">
-          <p>$0.00</p>
-          <p>賬戶餘額</p>
-        </div>
-      </van-col>
-      <van-col span="6">
-        <div class="user-bottom">
-          <p>0</p>
-          <p>積分</p>
-        </div>
-      </van-col>
-      <van-col span="6">
-        <div class="user-bottom">
-          <!-- -->
-          <p>首衝有贈送</p>
-          <p>充值</p>
-        </div>
-      </van-col>
-      <van-col span="24">
-        <div class="user-order">
-          <p class="my-order">我的訂單</p>
-          <van-search v-model="value" shape="round" background="#ffffff" placeholder="搜索我的訂單" />
-          <van-tabs v-model="active" animated>
-            <van-tab title="待付款">
-              <template #title>
-                <van-icon name="balance-list-o" />待付款
-              </template>
-
-              <div class="card-order">
-                <van-card
-                  num="2"
-                  price="$22.00"
-                  desc="好甜好脆好吃"
-                  title="一休胡蘿蔔"
-                  thumb="https://img.yzcdn.cn/vant/ipad.jpeg"
-                >
-                  <template #tags>
-                    <!-- <van-tag plain type="danger">标签</van-tag>
-                    <van-tag plain type="danger">标签</van-tag>-->
-                  </template>
-                  <template #footer>
-                    <van-button size="mini" type="primary" plain hairline>查看明細</van-button>
-                    <van-button size="mini" type="danger" plain hairline>刪除訂單</van-button>
-                  </template>
-                </van-card>
-              </div>
-            </van-tab>
-            <van-tab title="待發貨">
-              <template #title>
-                <van-icon name="logistics" />待發貨
-              </template>内容 2
-            </van-tab>
-            <van-tab title="待收貨">
-              <template #title>
-                <van-icon name="records" />待收貨
-              </template>内容 3
-            </van-tab>
-            <van-tab title="已完成">
-              <template #title>
-                <van-icon name="passed" />已完成
-              </template>内容 4
-            </van-tab>
-          </van-tabs>
-        </div>
-      </van-col>
-    </van-row>
+        <van-cell title="建議" is-link />
+      </div>
+      <div class="user-content-center">
+        <van-cell title="條款與規則" is-link />
+        <van-cell title="退出登錄" is-link />
+      </div>
+    </div>
   </div>
 </template>
 <script>
 export default {
   components: {},
-  data() {
-    return {
-      active: 2,
-      value: '',
-    }
-  },
   mounted() {},
   methods: {},
 }
 </script>
 <style lang="less">
-.user-wrap {
-  padding: 60px 10px;
-  .van-row {
-    border-top: 1px solid #cccccc;
-    border-left: 1px solid #cccccc;
-    border-right: 1px solid #cccccc;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px 0px #424040;
-    // background-image: url('../../assets/background.jpg');
-    background-color: rgb(201, 143, 101);
-  }
-
-  .user-left {
-    padding: 10px;
-    border-bottom: 1px solid #cccccc;
-    display: flex;
-    align-items: center;
-
-    .userIcon {
-      font-size: 30px;
+.user {
+  background-color: #ccc;
+  .user-head {
+    h3 {
+      margin: 0px;
+      font-size: 20px;
+      text-align: center;
+      font-family: PingFangSC-Light, helvetica, 'Heiti SC';
+      color: #fff;
     }
-    i {
-      font-weight: 600;
+    padding: 20px 0px 20px 20px;
+    background-image: url('../../assets/imgs/bc4ec373-4def-41ce-8182-0b6cfd4e0184.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    .user-head-center {
+      height: 100%;
+    }
+    img {
+      border-radius: 50%;
+    }
+    .name {
+      height: 100%;
+      overflow: hidden;
+      font-size: 18px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin: 10px;
+      color: #fff;
+    }
+    .vip {
+      margin: 0px 10px 10px 10px;
+      color: #fff;
+      font-family: PingFangSC-Light, helvetica, 'Heiti SC';
+    }
+    .user-head-right {
+      background-color: black;
+      border-radius: 20px 0px 00px 20px;
+      i {
+        font-size: 25px;
+        color: #f9e0c0;
+        position: absolute;
+
+        left: 5px;
+      }
+      span {
+        color: #f9e0c0;
+        text-align: center;
+        display: block;
+        margin: 0px 0px 0px 20px;
+      }
+      p {
+        position: relative;
+        color: #f9e0c0;
+        text-align: center;
+        margin: 0px;
+        font-size: 12px;
+        font-weight: 600;
+        // padding: 2px;
+        padding: 15px 0px;
+      }
     }
   }
-  .user-bottom {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    padding: 5px;
+  .user-content {
+    background-color: #eee;
+    padding: 15px 10px 10px 10px;
+    .user-content-head {
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 10px;
+    }
+    .payment {
+      display: flex;
+      justify-content: space-evenly;
+      button {
+        width: 40%;
+      }
+    }
     p {
-      &:nth-child(1) {
-        color: red;
+      text-align: center;
+      &:nth-child(2) {
+        font-size: 20px;
         font-weight: 600;
       }
-      padding: 3px 0px;
     }
-  }
-  .user-order {
-    margin: 5px;
-    border: 1px solid #cccccc;
-    border-radius: 10px;
-    padding: 10px;
-    .my-order {
-      font-weight: 600;
-    }
-    .card-order {
-      // margin-top: 10px;
-    }
-    .van-tabs__nav {
-      background-color: white;
-      .van-tab__text {
-        display: flex;
-        flex-direction: column;
-        i {
-          text-align: center;
-          font-size: 18px;
-          color: red;
-        }
-      }
-    }
-  }
-  .van-col {
-    &:nth-last-child(1) {
-      .user-left {
-        border-radius: 10px;
-      }
+    .user-content-center {
+      margin: 15px 0px;
     }
   }
 }

@@ -2,9 +2,14 @@
 html,
 body {
   width: 100%;
+  /* height: 100%; */
+  /* overflow: hidden; */
   height: 100%;
-
   /* max-width: 1024px; */
+  background-color: #eeeeee;
+}
+body {
+  background-color: #eeeeee !important;
 }
 /* 清除内外边距 */
 body,
@@ -109,6 +114,9 @@ a {
   text-decoration: none;
   color: #666;
 }
+/* * {
+  touch-action: none;
+} */
 
 /* 重置表单元素 */
 legend {

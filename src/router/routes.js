@@ -6,41 +6,40 @@ export default [
     name: 'home',
     component: () => import('../pages/Home')
   },
-  {
-    path: "/pawnshop",
-    name: 'pawnshop',
-    component: () => import('../pages/Pawnshop')
-  },
-  {
-    path: "/goodslist",
-    name: 'goodslist',
-    component: () => import('../pages/GoodsList')
-  },
+
+
   {
     path: "/shoppingcart",
     name: 'shoppingcart',
     component: () => import('../pages/ShoppingCart')
   },
-  {
-    path: "/goodsdetails",
-    name: 'goodsdetails',
-    component: () => import('../pages/GoodsDetails')
-  },
+
   {
     path: "/pay",
     name: 'pay',
     component: () => import('../pages/Pay')
   },
   {
-    path: "/addaddress",
-    name: 'addaddress',
-    component: () => import('../pages/Addaddress')
+    path: "/attributelist",
+    component: () => import('../pages/AttriButeList')
+  },
+  //订单详情
+  {
+    path: "/shoplist",
+    component: () => import('../pages/ShopList')
+  },
+
+  //支付页
+  {
+    path: "/pay",
+    component: () => import('../pages/Pay')
   },
   {
-    path: "/selectaddress",
-    name: 'selectaddress',
-    component: () => import('../pages/SelectAddress')
+    path: "/goodslist",
+    name: 'goodslist',
+    component: () => import('../pages/GoodsList')
   },
+
   {
     path: "/payresults",
     name: 'payresults',

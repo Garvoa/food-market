@@ -2,13 +2,15 @@ import Vue from 'vue'
 import App from './App.vue'
 import 'vant/lib/icon/local.css'
 import "./vant"
-import router from "./router"
+
 import "swiper/css/swiper.css"
 Vue.config.productionTip = false
 import zhHK from 'vant/lib/locale/lang/zh-HK';
 import { Locale } from "vant"
 import store from "./store"
 Locale.use('zh-HK', zhHK);
+import router from "./router"
+Vue.prototype.$bus = new Vue()
 // window.addEventListener(
 //   'beforeunload',
 //   () => {

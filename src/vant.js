@@ -1,6 +1,9 @@
 import Vue from 'vue'
-import { Button, Field, Icon, Tabbar, TabbarItem, Swipe, SwipeItem, Overlay, Tab, Tabs, Dialog, Form, Toast, TreeSelect, Search, PullRefresh, ActionSheet, Cell, List, RadioGroup, Radio, Loading, GoodsAction, GoodsActionButton, GoodsActionIcon, DropdownMenu, DropdownItem, Popup, Collapse, CollapseItem, NavBar, switchCell, sku, shareSheet, ImagePreview, Col, Row, Stepper, Checkbox, CheckboxGroup, Calendar, DatetimePicker, AddressEdit, AddressList, Notify, Card, Tag } from 'vant';
-
+import { Button, Field, Icon, Tabbar, TabbarItem, Swipe, SwipeItem, Overlay, Tab, Tabs, Dialog, Form, Toast, TreeSelect, Search, PullRefresh, ActionSheet, Cell, List, RadioGroup, Radio, Loading, GoodsAction, GoodsActionButton, GoodsActionIcon, DropdownMenu, DropdownItem, Popup, Collapse, CollapseItem, NavBar, switchCell, sku, shareSheet, ImagePreview, Col, Row, Stepper, Checkbox, CheckboxGroup, Calendar, DatetimePicker, AddressEdit, AddressList, Notify, Card, Tag, PasswordInput, NumberKeyboard, Sticky, Sidebar, SidebarItem } from 'vant';
+Vue.use(SidebarItem)
+Vue.use(Sidebar)
+Vue.use(PasswordInput);
+Vue.use(NumberKeyboard);
 Vue.use(Radio);
 Vue.use(RadioGroup);
 Vue.use(Button);
@@ -48,3 +51,4 @@ Vue.use(AddressList)
 Vue.use(Notify)
 Vue.use(Card)
 Vue.use(Tag)
+Vue.use(Sticky)

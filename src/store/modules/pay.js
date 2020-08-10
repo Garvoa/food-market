@@ -1,33 +1,17 @@
+import { getBannerList } from "../../api"
+
 const state = {
-
-  payOrdersList: [],
-
+  paydetail: {}
 }
 const mutations = {
-  Update_payOrdersList(state, list) {
-    if (list.length) {
-      state.payOrdersList = list
-    } else {
-      state.payOrdersList.push(list)
-    }
-
-  },
-  Del_payOrdersList(state) {
-    state.payOrdersList = []
+  UPDATA_PAY_TYPE_LIST(state, data) {
+    state.paydetail = data
   }
-
 }
 const actions = {
 
 }
-const getters = {
-  getPrice(state) {
-    return state.payOrdersList ? state.payOrdersList.reduce((p, c) => {
-      p += c.num * c.price
-      return p
-    }, 0) : 0
-  }
-}
+const getters = {}
 
 
 export default {
